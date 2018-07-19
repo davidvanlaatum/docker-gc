@@ -4,6 +4,7 @@ Name:           docker-gc
 Version:        1.0.0
 Release:        1%{?dist}
 Summary:        Docker Garbage Collector
+License:        None
 URL:            https://github.com/davidvanlaatum/docker-gc
 Source0:        docker-gc-%{version}.tar.gz
 
