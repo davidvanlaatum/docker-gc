@@ -5,6 +5,7 @@ COMMIT=`git rev-parse --short HEAD`
 APP=docker-gc
 REPO?=ndeloof/$(APP)
 TAG?=latest
+VERSION=1.0.0
 
 all: image
 
@@ -31,3 +32,14 @@ clean:
 	@rm docker-gc
 
 .PHONY: deps build build-docker build-app build-image image clean
+
+tar:
+	mkdir -p docker-gc-$(VERSION)
+	cp gc.go docker-gc-$(VERSION)/
+	cp docker-gc-rh7.service docker-gc-$(VERSION)/docker-gc.service
+	tar -zcf docker-gc-$(VERSION).tar.gz docker-gc-$(VERSION)
+	rm -rf docker-gc-$(VERSION)
+
+rpm: tar
+	cp docker-gc-$(VERSION).tar.gz ~/rpmbuild/SOURCES/
+	rpmbuild -ba docker-gc.spec

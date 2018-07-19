@@ -72,3 +72,8 @@ _testmain.go
 *.prof
 
 docker-gc
+
+*.rpm
+*.tar.gz
+
+docker-gc-*/

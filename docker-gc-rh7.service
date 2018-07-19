@@ -1,0 +1,11 @@
+[Unit]
+Description=Docker-GC Service
+After=docker.service
+Requires=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/sbin/docker-gc
+
+[Install]
+WantedBy=multi-user.target
