@@ -17,7 +17,7 @@ package main
 
 import (
 	"github.com/fsouza/go-dockerclient"
-	log "github.com/Sirupsen/logrus"
+	log "github.com/sirupsen/logrus"
 	"time"
 	"flag"
 	"os"
